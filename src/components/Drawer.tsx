@@ -5,7 +5,7 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { useStore } from '../store/useStore';
 
 const Drawer = () => {
-  const drawerWidth = 320; // Width of the drawer
+  const drawerWidth = 320;
   const drawerRef = useRef(null);
 
   const { isDark, updateIsDark } = useStore();
@@ -19,17 +19,14 @@ const Drawer = () => {
   const bind = useDrag(({ down, movement: [mx], swipe: [swipeX] }) => {
     if (!down) {
       if (swipeX === -1 || mx < -drawerWidth / 3) {
-        // Close the drawer on swipe left or when more than half dragged to the left
         drawerRef.current.checked = false;
         api.start({ x: down ? mx : 0, immediate: down });
       } 
       else {
-        // Snap back to open state
         api.start({  x: down ? mx : 0, immediate: down});
       }
     }
      else {
-      // Constrain movement to left only and not beyond drawer width
       const newX = mx < -drawerWidth ? -drawerWidth : mx > 0 ? 0 : mx;
       api.start({ x: newX, immediate: down });
     }
@@ -37,7 +34,7 @@ const Drawer = () => {
 
 
   return (
-    <div className="drawer w-auto">
+    <div className="drawer w-auto z-50">
       <input
         ref={drawerRef}
         id="my-drawer"
@@ -50,6 +47,7 @@ const Drawer = () => {
           <GiHamburgerMenu />
         </label>
       </div>
+
       <animated.div
         className="drawer-side "
         {...bind()}
