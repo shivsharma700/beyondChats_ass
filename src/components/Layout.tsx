@@ -1,12 +1,19 @@
+import { useStore } from '../store/useStore'
+import ContactList from './ContactList'
+import ChatBox from './helping_components/ChatBox'
 import  Navbar  from './Navbar'
-import Tab from './Tab'
 
 const Layout = () => {
+
+  const {isDark, count} = useStore()
+
   return (
-    <div className=" h-screen " >
-      <Navbar/>
-      <Tab/>
-      <div className=' bg-red-500 w-full h-screen ' ></div>
+    <div data-theme={`${isDark ? 'dim': 'cupcake'}`}  className=" h-screen w-full flex flex-col md:flex-row  " >
+          <div className={` ${ count == 1 ? 'block' : 'hidden' } md:block md:w-[25%]`} >
+            <Navbar/>
+            <ContactList/>
+          </div>
+          <ChatBox/>
     </div>
   )
 }
