@@ -11,8 +11,8 @@ const ContactList = () => {
   }, [fetchChats]);
 
   return (
-    <div data-theme={`${isDark ? 'dim' : 'cupcake'}`} className="flex flex-col h-full">
-      <div className="flex-grow overflow-y-scroll md:border-r-[1px]">
+    <div data-theme={`${isDark ? 'dim' : 'cupcake'}`} className="flex flex-col w-full h-full">
+      <div className=" w-full h-[85vh]  overflow-y-scroll md:border-r-[1px]">
         {isLoading ? (
           <div className="w-full mt-10 flex justify-center items-center">
             <span className="loading loading-spinner loading-lg"></span>

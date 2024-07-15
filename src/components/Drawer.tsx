@@ -56,7 +56,7 @@ const Drawer = () => {
         style={{ x }}
       >
          {/* <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay "></label> */}
-        <animated.ul className="menu bg-base-200 text-base-content min-h-full w-80 p-0">
+        <animated.ul data-theme={`${isDark ? 'dim': 'cupcake'}`}  className="menu bg-base-200 text-base-content min-h-full w-80 p-0">
           {/* Sidebar content here */}
           <li data-theme={`${isDark ? 'dim': 'aqua'}`} className='  flex flex-row justify-between items-start p-2 ' >
             <div className=' flex flex-col gap-0 ' >

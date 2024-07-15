@@ -57,7 +57,7 @@ export const useChatStore = create<ChatState>((set) => ({
       const response = await fetch(`https://devapi.beyondchats.com/api/get_chat_messages?chat_id=${chatId}`);
       const data = await response.json();
       console.log(data)
-      set({ chatMessages: data?.data });
+      set({ chatMessages: data?.data.reverse() });
     } catch (error) {
       set({ error: error, });
     }

@@ -10,7 +10,7 @@ const ChatBox = () => {
     const {chatMessages} = useChatStore()
 
     useEffect(() => {
-      console.log(chatMessages)
+      console.log(chatMessages.reverse())
     },[chatMessages.length])
 
     const getInitials = (name: string): string => {
@@ -22,7 +22,7 @@ const ChatBox = () => {
       };
 
   return (
-    <div className=" md:w-[75%] overflow-y-hidden " >
+    <div className=" w-full h-full md:w-[75%] overflow-y-hidden " >
         <div data-theme={`${isDark && 'dracula'}`} className={` ${!isDark && 'bg-slate-200'} ${ count == 2 ? ' w-full flex flex-row sticky top-0 items-center p-4 border-b-[1px] ' : 'hidden' } `} >
             <button className={` md:hidden `} onClick={() => setCount(1)} ><FaArrowLeft/></button>
             <div className="avatar placeholder">
@@ -36,7 +36,7 @@ const ChatBox = () => {
         </div>
         <div className=" ml-auto dropdown dropdown-bottom dropdown-end">
           <div tabIndex={0} role="button" className="btn m-1"><BsThreeDotsVertical/></div>
-          <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+          <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-50 w-52 p-2 shadow">
             <li><a>Item 1</a></li>
             <li><a>Item 2</a></li>
           </ul>
