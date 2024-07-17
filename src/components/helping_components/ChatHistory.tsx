@@ -64,7 +64,7 @@ const ChatHistory = () => {
            }
            {
             count == 2 && (
-              <div data-theme={`${isDark && 'dracula'}`} className={` flex flex-row gap-6 p-4 fixed bottom-2 ${!isDark && 'bg-slate-200'}  w-full `} >
+              <div data-theme={`${isDark && 'dracula'}`} className={` flex flex-row gap-6 p-4 fixed bottom-0 ${!isDark && 'bg-slate-200'}  w-full `} >
               <input type="text" placeholder="Message" className="input input-bordered w-[65%]" />
               <button className=" btn " >Send</button>
               </div>
